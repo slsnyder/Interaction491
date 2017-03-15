@@ -1,7 +1,7 @@
 
 
-function Cell(game, xIndex, yIndex) {
-    this.alive = START_STATE[xIndex][yIndex];
+function Cell(game, yIndex, xIndex) {
+    this.alive = START_STATE[yIndex][xIndex];
     this.x = xIndex * CELL_W;
     this.y = yIndex * CELL_H;
 };
@@ -20,10 +20,10 @@ Cell.prototype.update = function () {
 Cell.prototype.draw = function (ctx) {
     if (this.alive) {
         ctx.fillStyle = "forestgreen";
-        ctx.fillRect(this.x, this.y, this.x + CELL_W, this.y + CELL_H);
+        ctx.fillRect(this.x, this.y, CELL_W, CELL_H);
     }
     ctx.strokeStyle = "lightgreen";
-    ctx.strokeRect(this.x, this.y, this.x + CELL_W, this.y + CELL_H);
+    ctx.strokeRect(this.x, this.y, CELL_W, CELL_H);
 };
 
 
