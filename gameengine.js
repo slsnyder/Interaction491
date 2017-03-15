@@ -114,6 +114,14 @@ GameEngine.prototype.update = function () {
         var entity = this.entities[i];
 
         if (!entity.removeFromWorld) {
+            entity.readyUpdate();
+        }
+    }
+    
+    for (var i = 0; i < entitiesCount; i++) {
+        var entity = this.entities[i];
+
+        if (!entity.removeFromWorld) {
             entity.update();
         }
     }
@@ -139,6 +147,9 @@ function Entity(game, x, y) {
     this.x = x;
     this.y = y;
     this.removeFromWorld = false;
+}
+
+Entity.prototype.readyUpdate = function() {
 }
 
 Entity.prototype.update = function () {
